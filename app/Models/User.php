@@ -16,6 +16,7 @@ use Laravel\Sanctum\HasApiTokens;
 
 /**
  * @property int $id
+ * @property string $ulid
  * @property string $name
  * @property string $email
  * @property Carbon|null $email_verified_at
@@ -24,6 +25,7 @@ use Laravel\Sanctum\HasApiTokens;
  * @property Carbon|null $updated_at
  */
 #[Fillable([
+    'ulid',
     'name',
     'email',
     'password',
@@ -40,6 +42,13 @@ final class User extends Authenticatable implements MustVerifyEmail
     use HasFactory;
 
     use Notifiable;
+
+    protected static function booted(): void
+    {
+        static::creating(function (User $user): void {
+            $user->ulid ??= (string) str()->ulid();
+        });
+    }
 
     /**
      * Get the attributes that should be cast.

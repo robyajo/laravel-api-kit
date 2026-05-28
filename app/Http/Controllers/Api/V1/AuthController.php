@@ -19,6 +19,7 @@ use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Password;
+use Laravel\Sanctum\PersonalAccessToken;
 
 final class AuthController extends ApiController
 {
@@ -60,7 +61,13 @@ final class AuthController extends ApiController
     {
         /** @var User $user */
         $user = $request->user();
-        $user->currentAccessToken()->delete();
+
+        /** @var PersonalAccessToken|null $token */
+        $token = $user->currentAccessToken();
+
+        if ($token !== null) {
+            $token->delete();
+        }
 
         return $this->success(message: 'Logged out successfully');
     }
