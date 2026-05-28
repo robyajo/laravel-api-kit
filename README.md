@@ -5,6 +5,34 @@ A production-ready, API-only Laravel 13 starter kit following the 2025-2026 REST
 [![PHP Version](https://img.shields.io/badge/PHP-8.3%2B-blue)](https://php.net)
 [![Laravel Version](https://img.shields.io/badge/Laravel-13.x-red)](https://laravel.com)
 [![License](https://img.shields.io/badge/License-MIT-green)](LICENSE)
+[![Use this template](https://img.shields.io/badge/Use%20this%20template-GitHub-blue)](https://github.com/robyajo/laravel-api-kit/generate)
+
+## Use This Template
+
+The fastest way to start a new project is to create a repository from this template:
+
+### Option 1 — GitHub UI
+
+Click the **"Use this template"** button at the top of the [repository page](https://github.com/robyajo/laravel-api-kit), or go directly to [github.com/robyajo/laravel-api-kit/generate](https://github.com/robyajo/laravel-api-kit/generate).
+
+### Option 2 — GitHub CLI
+
+```bash
+gh repo create my-project --template robyajo/laravel-api-kit --public --clone
+```
+
+### Option 3 — Manual clone (reset git history)
+
+```bash
+git clone https://github.com/robyajo/laravel-api-kit.git my-project
+cd my-project
+rm -rf .git
+git init
+git add .
+git commit -m "Initial commit from laravel-api-kit"
+```
+
+> **Note:** For this to work, the repository owner must first mark it as a **template repository** via **Settings → Template repository** on GitHub.
 
 ## Features
 
